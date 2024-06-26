@@ -1,12 +1,20 @@
 package com.brian.jobsapp.job;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Job {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String description;
     private String minSalary;
     private String maxSalary;
     private String location;
+
+    public Job() {
+    }
 
     public Job(String minSalary, String maxSalary, String description, String title, Long id, String location) {
         this.minSalary = minSalary;
