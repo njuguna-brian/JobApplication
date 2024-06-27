@@ -5,14 +5,12 @@ import com.brian.jobsapp.job.JobRepository;
 import com.brian.jobsapp.job.JobService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 @Service
 public class JobServiceImpl implements JobService {
     JobRepository jobRepository;
-    private Long nextId = 1L;
+
     public JobServiceImpl(JobRepository jobRepository) {
         this.jobRepository = jobRepository;
     }
@@ -24,7 +22,6 @@ public class JobServiceImpl implements JobService {
 
     @Override
     public void createJob(Job job) {
-        job.setId(nextId++);
         jobRepository.save(job);
     }
 

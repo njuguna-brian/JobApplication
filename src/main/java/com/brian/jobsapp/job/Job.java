@@ -1,6 +1,9 @@
 package com.brian.jobsapp.job;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class Job {
@@ -14,15 +17,6 @@ public class Job {
     private String location;
 
     public Job() {
-    }
-
-    public Job(String minSalary, String maxSalary, String description, String title, Long id, String location) {
-        this.minSalary = minSalary;
-        this.maxSalary = maxSalary;
-        this.description = description;
-        this.title = title;
-        this.id = id;
-        this.location = location;
     }
 
     public Long getId() {
