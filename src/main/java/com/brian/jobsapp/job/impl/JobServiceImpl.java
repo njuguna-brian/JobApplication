@@ -42,7 +42,6 @@ public class JobServiceImpl implements JobService {
     @Override
     public boolean updateJob(Long id, Job updateJob) {
         if (jobRepository.existsById(id)) {
-            updateJob.setId(id);
             jobRepository.save(updateJob);
             return true;
         }
