@@ -1,6 +1,7 @@
 package com.brian.jobsapp.company;
 
 import com.brian.jobsapp.job.Job;
+import com.brian.jobsapp.review.Review;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -12,12 +13,26 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+
+
     private String description;
     @JsonIgnore
     @OneToMany(mappedBy = "company")
     private List<Job> jobs;
 
+    @OneToMany(mappedBy = "company")
+    private List<Review> reviews;
+
     public Company() {
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 
     public Long getId() {
